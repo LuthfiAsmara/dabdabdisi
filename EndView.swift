@@ -18,14 +18,14 @@ struct EndView: View{
             QuestionView()
         } else{
             VStack{
+                Spacer().frame(height: 40)
                 Text("We're Done!")
                     .font(.system(size: 35))
                     .fontWeight(.bold)
-                Spacer().frame(height: 30)
+                Spacer().frame(height: 10)
                 
                 Text("What have you learned in kromo language?")
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
+                    .font(.system(size: 25))
                     .padding(.bottom, 5)
                 VStack{
                     ZStack{
@@ -37,7 +37,7 @@ struct EndView: View{
                             .fontWeight(.bold)
                             .padding(.bottom, 30)
                     }.offset(y: offset)
-                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true))
+                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: offset)
                         .onAppear {
                             offset = 10
                         }
@@ -48,7 +48,8 @@ struct EndView: View{
                     
                     
                 }.frame(width: 600)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 10)
+                
                 VStack{
                     ZStack{
                         Image("badges")
@@ -61,7 +62,7 @@ struct EndView: View{
                             .padding(.bottom, 30)
                         
                     }.offset(y: offset)
-                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true))
+                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: offset)
                         .onAppear {
                             offset = 10
                         }
@@ -69,8 +70,9 @@ struct EndView: View{
                         .frame(width: 550)
                     
                 }.frame(width: 600)
-                    .padding(.bottom, 20)
-                    .cornerRadius(20)
+                    .padding(.bottom, 10)
+                
+                
                 VStack{
                     ZStack{
                         Image("badges")
@@ -82,15 +84,17 @@ struct EndView: View{
                             .padding(.bottom, 30)
                         
                     }.offset(y: offset)
-                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true))
+                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: offset)
                         .onAppear {
                             offset = 10
                         }
-                    Text("**Matur sembah nuwun**. Sampun mendetne layangan kulo")
+                    Text("**Pangapunten Pak Bagyo**, wau kulo ngagem basa ngoko")
                         .font(.system(size: 25))
                         .frame(width: 550)
                 }.frame(width: 600)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 10)
+                
+                
                 VStack{
                     ZStack{
                         Image("badges")
@@ -103,7 +107,7 @@ struct EndView: View{
                             .padding(.bottom, 30)
                         
                     }.offset(y: offset)
-                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true))
+                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: offset)
                         .onAppear {
                             offset = 10
                         }
@@ -112,16 +116,16 @@ struct EndView: View{
                         .font(.system(size: 25))
                         .frame(width: 550)
                 }.frame(width: 600)
-                    .padding(.bottom, 20)
-                    .border(.black)
+                    .padding(.bottom, 10)
                 
-                
-                Spacer().frame(height: 30)
-                //                Text("You're awesome!")
-                //                    .font(.system(size: 35))
-                //                    .fontWeight(.bold)
-                
-            }
+                Image("begin")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200)
+                    .padding(.top, 40)
+                Spacer()
+               
+            }.background(Image("canvas"))
             .onTapGesture {
                 self.isStart = true
             }

@@ -148,7 +148,7 @@ struct IntroView: View{
                         .frame(width: 200)
                 }
                 .offset(y: offsetY)
-                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true))
+                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: offsetY)
                 .onAppear {
                     offsetY = 250
                 }
@@ -158,6 +158,7 @@ struct IntroView: View{
             Text("One morning, you were flying a kite in the park. Unfortunately, your kite got stuck in a tree. You looked sad, but luckily you met your neighbor, Pak Bagyo, and you wanted to ask for their help.\n**Let's learn kromo language from this case**")
                 .font(.system(size: 30))
                 .padding(30)
+                .foregroundColor(.black)
             
             
             Spacer()
@@ -328,6 +329,7 @@ struct IndexView: View{
                                 
                                 Text("*\(a.translate)*")
                                     .font(.system(size: 32))
+                                    .foregroundColor(.black)
                                     .padding(.horizontal, 30)
                                 Spacer()
                             }
@@ -361,7 +363,7 @@ struct IndexView: View{
                                             self.isIndexTwo = false
                                         }
                                         
-                                    }else if !a.status || !(currentIndex < $qa.count - 1){
+                                    }else if !a.status{
                                                                                 self.isAnswer = false
                                         isApologize = true
                                                                                 currentIndex = currentIndex
@@ -441,17 +443,17 @@ struct ApologizingView: View {
                             .frame(width: 200)
                         Spacer()
                     }
-                    VStack{
-                        Spacer()
-                        Text("It looks like Mr. Bagyo isn't happy with the way you spoke. You used the ngoko language just now, so you should switch to kromo. Please apologize and repeat your way of talking using the kromo language....")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 15)
-                            .background(.black.opacity(0.2))
-                    }
+//                    VStack{
+//                        Spacer()
+//                        Text("It looks like Mr. Bagyo isn't happy with the way you spoke. You used the ngoko language just now, so you should switch to kromo. Please apologize and repeat your way of talking using the kromo language.")
+//                            .font(.largeTitle)
+//                            .fontWeight(.bold)
+//                            .foregroundColor(.white)
+//                            .frame(maxWidth: .infinity)
+//                            .padding(.horizontal, 20)
+//                            .padding(.vertical, 15)
+//                            .background(.black.opacity(0.2))
+//                    }
                     Image("buble")
                         .resizable()
                         .scaledToFit()
@@ -466,10 +468,19 @@ struct ApologizingView: View {
                         .offset(y: -120)
                     
                 }.frame(maxWidth: .infinity, maxHeight: 600)
+                Text("It looks like Mr. Bagyo isn't happy with the way you spoke. You used the ngoko language just now, so you should switch to kromo. Please apologize and repeat your way of talking using the kromo language.")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(width: .infinity)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 15)
+                    .background(.black.opacity(0.2))
+                Spacer()
                 ZStack{
                     Image("card")
                         .resizable()
-                        .scaledToFit()
+                        .frame(width: 400, height: 350)
                     VStack{
                         Text("*Click this card to apologize*")
                             .font(.system(size: 20))
