@@ -443,7 +443,7 @@ struct ApologizingView: View {
                     }
                     VStack{
                         Spacer()
-                        Text("It looks like Mr. Bagyo isn't happy with the way you spoke. You used the ngoko language just now, so you should switch to kromo. Please apologize and repeat your way of talking using the kromo language.")
+                        Text("It looks like Mr. Bagyo isn't happy with the way you spoke. You used the ngoko language just now, so you should switch to kromo. Please apologize and repeat your way of talking using the kromo language....")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
